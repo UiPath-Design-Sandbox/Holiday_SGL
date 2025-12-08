@@ -56,11 +56,11 @@ export const Present: React.FC<PresentProps> = ({ onClick, color, disabled = fal
             
             {/* Tooltip */}
             {disabled && (
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
                     Already sent!
                     {/* Tooltip arrow */}
                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1">
-                        <div className="w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
+                        <div className="w-2 h-2 bg-gray-900 rotate-45"></div>
                     </div>
                 </div>
             )}

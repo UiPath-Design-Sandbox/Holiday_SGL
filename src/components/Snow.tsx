@@ -16,7 +16,7 @@ export const Snow: React.FC = () => {
             {snowflakes.map((flake) => (
                 <motion.div
                     key={flake.id}
-                    className="absolute bg-white dark:bg-gray-300 rounded-full opacity-80 dark:opacity-60"
+                    className="absolute bg-white rounded-full opacity-80"
                     style={{
                         left: flake.left,
                         width: flake.size,
