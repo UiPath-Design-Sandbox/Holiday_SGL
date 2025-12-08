@@ -150,7 +150,7 @@ function App() {
         <img 
           src={isDarkMode ? "/bg.png" : "/scene.png"} 
           alt={isDarkMode ? "Dark Winter Scene" : "Winter Scene"} 
-          className="absolute inset-0 w-full h-full object-contain z-10 transition-opacity duration-500" 
+          className="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-500" 
         />
 
         <div className="absolute inset-0 bg-black/10 dark:bg-black/30 z-20 transition-colors duration-500"></div> {/* Overlay for text readability */}
@@ -167,83 +167,81 @@ function App() {
         </header>
 
         {/* The Tree - Takes available space */}
-        <div className="flex-1 w-full flex justify-center items-end pb-4 min-h-0">
+        <div className="flex-1 w-full flex justify-center items-end pb-4 min-h-0 relative">
           <Tree />
-        </div>
+          
+          {/* Presents scattered below the tree */}
+          <div className="absolute bottom-0 left-0 right-0 w-full h-40 md:h-48 lg:h-56 z-20 px-4 md:px-8 pointer-events-none">
+            <div className="relative w-full h-full pointer-events-auto">
+              {windowWidth > 0 && (() => {
+                // Show all presents
+                const totalPresents = presents.length;
+                
+                // Calculate optimal spacing to prevent overlap
+                // Each present is about 64px (w-16 h-16), so we need at least 80px spacing
+                const presentSize = 80; // Approximate size including spacing
+                
+                // Calculate number of columns based on available width
+                const availableWidth = windowWidth - 64; // Account for padding
+                const maxCols = Math.floor(availableWidth / presentSize);
+                // For 30 presents, aim for a balanced grid (e.g., 6x5 or 7x5)
+                const cols = Math.min(maxCols, Math.max(5, Math.ceil(Math.sqrt(totalPresents * 1.2))));
+                const rows = Math.ceil(totalPresents / cols);
+                
+                return presents.map((present, index) => {
+                  const seed = index * 137.508; // Golden angle for consistent distribution
+                  
+                  // Calculate grid position
+                  const row = Math.floor(index / cols);
+                  const col = index % cols;
+                  
+                  // Base position with proper spacing to prevent overlap
+                  const spacingX = 100 / (cols + 1);
+                  const spacingY = 100 / (rows + 1);
+                  
+                  const baseX = spacingX * (col + 1);
+                  const baseY = spacingY * (row + 1);
+                  
+                  // Add small organic variation (reduced to prevent overlap)
+                  // Use smaller variation to ensure no overlap with 30 presents
+                  const maxVariationX = Math.min(4, spacingX * 0.15); // Max 4% or 15% of spacing
+                  const maxVariationY = Math.min(3, spacingY * 0.15); // Max 3% or 15% of spacing
+                  const variationX = (Math.sin(seed) * maxVariationX);
+                  const variationY = (Math.cos(seed * 1.3) * maxVariationY);
+                  
+                  // Add slight rotation for natural look
+                  const rotation = (Math.sin(seed * 2) * 10); // ±10 degrees (reduced for tighter spacing)
+                  
+                  // Ensure positions stay within bounds with margin
+                  const x = Math.max(6, Math.min(94, baseX + variationX));
+                  const y = Math.max(6, Math.min(94, baseY + variationY));
 
-        {/* Presents in Semi-Circle/Arch */}
-        <div className="absolute bottom-4 left-0 right-0 w-full z-20 px-8 pointer-events-none">
-          <div className="relative w-full h-48 pointer-events-auto">
-            {windowWidth > 0 && (() => {
-              // Reorder presents to start from center and alternate left-right
-              const reorderedPresents: typeof presents = [];
-              const center = Math.floor(presents.length / 2);
+                  return (
+                    <div
+                      key={present.id}
+                      className="absolute"
+                      style={{
+                        left: `${x}%`,
+                        top: `${y}%`,
+                        transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
+                      }}
+                    >
+                      <Present
+                        color={present.color}
+                        onClick={() => setSelectedPresent(present)}
+                        disabled={sentPresents.has(present.id)}
+                      />
+                    </div>
+                  );
+                });
+              })()}
+            </div>
 
-              // Add center present first
-              if (presents.length > 0) {
-                reorderedPresents.push(presents[center]);
-              }
-
-              // Alternate adding presents to right and left
-              for (let i = 1; i <= center; i++) {
-                // Add to the right
-                if (center + i < presents.length) {
-                  reorderedPresents.push(presents[center + i]);
-                }
-                // Add to the left
-                if (center - i >= 0) {
-                  reorderedPresents.push(presents[center - i]);
-                }
-              }
-
-              return reorderedPresents.map((present, index) => {
-                // Calculate position along an inverted semi-circle (top-bottom-top)
-                const totalPresents = reorderedPresents.length;
-
-                // Dynamic arc span: starts narrow with few presents, expands to full width with more
-                // With 3 presents: ~60 degrees, with 10+: 180 degrees (full arch)
-                const maxArcSpan = 180;
-                const minArcSpan = 60;
-                const arcSpan = Math.min(maxArcSpan, minArcSpan + (totalPresents - 1) * 12);
-
-                // Center the arc by starting at the appropriate offset
-                const startAngle = (180 - arcSpan) / 2;
-                const angle = startAngle + (arcSpan / (totalPresents - 1 || 1)) * index;
-                const angleRad = (angle * Math.PI) / 180;
-
-                // Radius of the arc - use viewport width for full-width arch
-                const radius = windowWidth * 0.45; // 45% of viewport width for nice curvature
-
-                // Calculate x and y positions
-                // For inverted arc: x goes from left to right, y goes down then up
-                const x = 50 + (Math.cos(angleRad) * 45); // 45% spread from center
-                const y = (Math.sin(angleRad) * radius * 100) / 800; // Shallower arch - increased divisor
-
-                return (
-                  <div
-                    key={present.id}
-                    className="absolute"
-                    style={{
-                      left: `${x}%`,
-                      top: `${y}%`,
-                      transform: 'translate(-50%, -50%)',
-                    }}
-                  >
-                    <Present
-                      color={present.color}
-                      onClick={() => setSelectedPresent(present)}
-                      disabled={sentPresents.has(present.id)}
-                    />
-                  </div>
-                );
-              });
-            })()}
+            {/* Placeholder if no presents yet */}
+            {presents.length === 0 && (
+              <div className="text-slate-500 dark:text-slate-400 italic pointer-events-auto text-center">No presents yet. Add yours in src/presents!</div>
+            )}
           </div>
-
-          {/* Placeholder if no presents yet */}
-          {presents.length === 0 && (
-            <div className="text-slate-500 dark:text-slate-400 italic pointer-events-auto text-center">No presents yet. Add yours in src/presents!</div>
-          )}
         </div>
       </main>
 
