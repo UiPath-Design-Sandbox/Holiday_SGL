@@ -31,9 +31,9 @@ const rawPresents: Omit<PresentData, 'id'>[] = [
     },
     {
         sender: 'Olena Kosinska',
-        postcardImage: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=600&h=400&fit=crop',
-        wishes: 'Sending you warm wishes for a joyful holiday season and a prosperous new year. Thank you for being such an amazing colleague!',
-        color: 'blue'
+        postcardImage: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTNvZzcwaWtmaDh3NDczZWc4NGFycjB5emNoODNpc2NwaGk1YjVzOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/J3CQOSW996lsrqKRYS/giphy.gif?w=600&h=400&fit=crop',
+        wishes: 'May your pixels be crisp, your prototypes behave, your Figma libraries stay synced, and your 2026 backlog magically transform into “already shipped.',
+        color: 'teal'
     },
     {
         sender: 'Hadley Robin',
