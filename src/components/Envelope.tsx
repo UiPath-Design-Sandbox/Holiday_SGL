@@ -157,3 +157,4 @@ export default function Envelope3D({ isVisible, onComplete }: Envelope3DProps) {
   );
 }
 
+

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const Santa: React.FC = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none z-30 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-[15] overflow-hidden">
       <motion.div
         className="absolute"
         style={{

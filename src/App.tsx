@@ -4,6 +4,7 @@ import { Present } from './components/Present';
 import { Modal } from './components/Modal';
 import { Snow } from './components/Snow';
 import { Santa } from './components/Santa';
+import { MusicPlayer } from './components/MusicPlayer';
 import { presents, type PresentData } from './presents';
 
 function App() {
@@ -91,6 +92,7 @@ function App() {
 
       <Snow />
       <Santa />
+      <MusicPlayer />
 
       <main className="relative z-10 flex flex-col items-center h-full w-full p-4">
         <header className="text-center shrink-0 z-30">
