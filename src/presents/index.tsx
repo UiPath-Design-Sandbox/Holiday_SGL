@@ -35,18 +35,8 @@ const rawPresents: Omit<PresentData, 'id'>[] = [
         wishes: 'May your pixels be crisp, your prototypes behave, your Figma libraries stay synced, and your 2026 backlog magically transform into “already shipped.',
         color: 'teal'
     },
-    {
-        sender: 'Hadley Robin',
-        postcardImage: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=600&h=400&fit=crop',
-        wishes: 'Sending you warm wishes for a joyful holiday season and a prosperous new year. Thank you for being such an amazing colleague!',
-        color: 'Orange'
-    },
-    {
-        sender: 'Heather Barranco',
-        postcardImage: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=600&h=400&fit=crop',
-        wishes: 'Sending you warm wishes for a joyful holiday season and a prosperous new year. Thank you for being such an amazing colleague!',
-        color: 'Purple'
-    },
+  
+   
     
   
    
