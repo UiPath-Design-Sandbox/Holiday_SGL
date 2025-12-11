@@ -35,6 +35,12 @@ const rawPresents: Omit<PresentData, 'id'>[] = [
         wishes: 'May your pixels be crisp, your prototypes behave, your Figma libraries stay synced, and your 2026 backlog magically transform into “already shipped.',
         color: 'teal'
     },
+    {
+        sender: 'Olena Kosinska',
+        postcardImage: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExamRlbWEzbnhoeTh1bXF2MjZ3bGNleXIwaGVkejdoaHhwejljZ2VlNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7Bgpw7PwdxoDC/giphy.gif?w=600&h=400&fit=crop',
+        wishes: 'May your holidays be filled with the same joy as finding an unexpected auto-layout that actually behaves.',
+        color: 'red'
+    },
    
   
    
