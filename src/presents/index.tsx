@@ -21,7 +21,7 @@ const rawPresents: Omit<PresentData, 'id'>[] = [
         sender: 'Sarah Halverson',
         postcardImage: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHlsN2d6cGR3b2hqempoaGswaDQxNWdzbGQ2N2k5OGQ5b3h4cGF6eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LBAv3HJDl2WwU/giphy.gif?w=600&h=400&fit=crop',
         wishes: 'Happy holidays! May your streaming never buffer, your gifts all arrive on time, your cocktail be strong and your Slack notifications remain blissfully silent. 📺🍷🎁🔕',
-        color: 'green'
+        color: 'pink'
     },
     {
         sender: 'Krishna Sistla',
@@ -34,6 +34,12 @@ const rawPresents: Omit<PresentData, 'id'>[] = [
         postcardImage: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTNvZzcwaWtmaDh3NDczZWc4NGFycjB5emNoODNpc2NwaGk1YjVzOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/J3CQOSW996lsrqKRYS/giphy.gif?w=600&h=400&fit=crop',
         wishes: 'May your pixels be crisp, your prototypes behave, your Figma libraries stay synced, and your 2026 backlog magically transform into “already shipped.',
         color: 'teal'
+    },
+    {
+        sender: 'Olena Kosinska',
+        postcardImage: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExamRlbWEzbnhoeTh1bXF2MjZ3bGNleXIwaGVkejdoaHhwejljZ2VlNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7Bgpw7PwdxoDC/giphy.gif?w=600&h=400&fit=crop',
+        wishes: 'May your holidays be filled with the same joy as finding an unexpected auto-layout that actually behaves.',
+        color: 'red'
     },
    
   
