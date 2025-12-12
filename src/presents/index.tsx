@@ -46,7 +46,30 @@ const rawPresents: Omit<PresentData, 'id'>[] = [
         wishes: 'Baahhhhhhhh Humbug!',
         color: 'green'
     },
-   
+    {
+        sender: 'Andreea Ene',
+        postcardImage: 'https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg',
+        wishes: 'May your Wi‑Fi be strong, your cocoa be hot, and your cookies disappear faster than you can say “Ctrl+S.” Happy holidays from Andreea—may your New Year ship with zero bugs!',
+        color: 'purple'
+    },
+    {
+        sender: 'Carl',
+        postcardImage: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnpvcWZ3cmRqY3h2dWNvd3Z0cXBqZTdtbDg0bTdjN3U1bXZtcm85dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kKo2x2QSWMNfW/giphy.gif?w=600&h=400&fit=crop',
+        wishes: 'Why do designers love snow storms? White space, everywhere. Happy holidays!',
+        color: 'white'
+    },
+    {
+        sender: 'Nataliia Zasoba',
+        postcardImage: 'https://static.toiimg.com/thumb/msid-106252432,imgsize-168186,width-400,resizemode-4/106252432.jpg',
+        wishes: 'Merry Christmas Merry Christmas!',
+        color: 'purple'
+    },
+    {
+        sender: 'Robbbbbbbbb',
+        postcardImage: 'https://rvalibrary.org/wp-content/uploads/2021/12/scrooge-1-3.jpg',
+        wishes: 'Baahhhhhhhh Humbug!',
+        color: 'green'
+    },
   
    
     
