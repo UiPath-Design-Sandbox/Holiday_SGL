@@ -57,7 +57,7 @@ function Envelope({ onComplete }: EnvelopeProps) {
     return geo;
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((state) => {
     if (!groupRef.current || !meshRef.current) return;
 
     // Initialize start time
@@ -65,7 +65,7 @@ function Envelope({ onComplete }: EnvelopeProps) {
       startTime.current = state.clock.elapsedTime;
     }
 
-    const elapsed = state.clock.elapsedTime - startTime.current;
+    const elapsed = state.clock.elapsedTime - (startTime.current ?? 0);
     const duration = 2; // Faster animation - 2 seconds
     progress.current = Math.min(elapsed / duration, 1);
 
