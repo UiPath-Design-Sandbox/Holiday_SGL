@@ -41,6 +41,11 @@ const rawPresents: Omit<PresentData, 'id'>[] = [
         wishes: 'May your holidays be filled with the same joy as finding an unexpected auto-layout that actually behaves.',
         color: 'red'
     },
+    {sender: 'Robbbbbbbbb',
+        postcardImage: 'https://rvalibrary.org/wp-content/uploads/2021/12/scrooge-1-3.jpg',
+        wishes: 'Baahhhhhhhh Humbug!',
+        color: 'green'
+    },
    
   
    
